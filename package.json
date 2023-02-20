@@ -1,0 +1,23 @@
+{
+  "name": "xyz-liatrio",
+  "version": "0.0.1",
+  "description": "xyz-liatrio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevencorrea/xyz-liatrio.git"
+  },
+  "author": "Steven Correa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevencorrea/xyz-liatrio/issues"
+  },
+  "homepage": "https://github.com/stevencorrea/xyz-liatrio#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
