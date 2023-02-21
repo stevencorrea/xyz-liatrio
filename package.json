@@ -1,6 +1,6 @@
 {
   "name": "xyz-liatrio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "xyz-liatrio",
   "main": "server.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "express": "^4.18.2",
     "supertest": "^6.3.3"
   }
 }
