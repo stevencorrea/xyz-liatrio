@@ -10,8 +10,14 @@ provider "aws" {
   region = "us-west-1"
 }
 
+resource "aws_kms_key" "tfstate_encryption_key" {
+  description             = "Encrypts the tfstate object"
+  deletion_window_in_days = 10
+}
+
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "tfstate-xyz"
+  acl = "private"
 
   lifecycle {
     prevent_destroy = true
@@ -23,6 +29,17 @@ resource "aws_s3_bucket_versioning" "terraform_state" {
 
   versioning_configuration {
     status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+  bucket = aws_s3_bucket.terraform_state.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.tfstate_encryption_key.arn
+      sse_algorithm     = "aws:kms"
+    }
   }
 }
 
