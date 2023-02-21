@@ -26,7 +26,7 @@ provider "aws" {
 }
 
 #
-resource "null_resource" "example2" {
+resource "null_resource" "exampleNOW" {
   triggers = {
     value = "A example resource that does nothing!"
   }
