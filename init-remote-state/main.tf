@@ -20,7 +20,7 @@ resource "aws_kms_alias" "terraform_state_kms_key_alias" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "xyz-terraform-state"
+  bucket = "xyz-terraform-state-liatrio"
 
   lifecycle {
     prevent_destroy = true

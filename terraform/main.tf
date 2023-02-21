@@ -7,7 +7,7 @@ terraform {
 
   backend "s3" {
     region         = "us-west-1"
-    key            = "xyz-terraform-state/terraform.tfstate"
+    key            = "xyz-terraform-state-liatrio/terraform.tfstate"
     encrypt        = true
     kms_key_id     = "alias/terraform-state-key"
     dynamodb_table = "app-state"
