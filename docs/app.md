@@ -18,7 +18,6 @@ Because Date.now()'s value is returned in ms, we will also leverage Math.floor()
 1. Run `npm init` to create a `package.json`, specify `server.js` as the _entry point_ in the interactive script
 1. Install express `npm install express`
 1. Change `res.send('Hello World!')` on Line 6 to `res.json()`
-1. Change port to `3001` becuase port `3000` is too common for us ;p 
 1. Define our message body by adding the following into `res.json()`
 ```javascript
   {"message": "Automate all the things!",
