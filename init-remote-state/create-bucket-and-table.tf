@@ -11,12 +11,16 @@ provider "aws" {
 }
 
 resource "aws_kms_key" "terraform_state_kms_key" {
-  description             = "Encrypts tfstate-xyz objects"
+  description             = "Encrypts xyz-terraform-state objects"
   deletion_window_in_days = 10
+}
+resource "aws_kms_alias" "terraform_state_key_alias" {
+ name          = "alias/terraform-state-key"
+ target_key_id = aws_kms_key.terraform_state_kms_key.key_id
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "tfstate-xyz"
+  bucket = "xyz-terraform-state"
 
   lifecycle {
     prevent_destroy = true

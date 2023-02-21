@@ -21,7 +21,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: 'remote-state'
+        working-directory: 'init-remote-state'
 
     steps:
     # Checkout the repository to the GitHub Actions runner
