@@ -10,21 +10,25 @@ provider "aws" {
   region = "us-west-1"
 }
 
-resource "aws_kms_key" "tfstate_encryption_key" {
-  description             = "Encrypts the tfstate object"
+resource "aws_kms_key" "terraform_state_kms_key" {
+  description             = "Encrypts tfstate-xyz objects"
   deletion_window_in_days = 10
 }
 
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "tfstate-xyz"
-  acl    = "private"
 
   lifecycle {
     prevent_destroy = true
   }
 }
 
-resource "aws_s3_bucket_versioning" "terraform_state" {
+resource "aws_s3_bucket_acl" "terraform_state_acl" {
+  bucket = aws_s3_bucket.terraform_state.id
+  acl    = "private"
+}
+
+resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
   bucket = aws_s3_bucket.terraform_state.id
 
   versioning_configuration {
@@ -32,7 +36,7 @@ resource "aws_s3_bucket_versioning" "terraform_state" {
   }
 }
 
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
+resource "aws_s3_bucket_server_side_encryption_configuration" "terraform_state-sse-rule" {
   bucket = aws_s3_bucket.terraform_state.id
 
   rule {
@@ -55,7 +59,7 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
   }
 }
 
-resource "aws_s3_bucket_policy" "terraform_state_encryption" {
+resource "aws_s3_bucket_policy" "terraform_state_encryption_policy" {
   bucket = aws_s3_bucket.terraform_state.id
   policy = <<EOF
 {
