@@ -2,3 +2,5 @@
 node_modules
 # If you choose to use macOS, we don't want the OS metadata
 .DS_STORE
+# Omit Terraform modules
+**/.terraform
