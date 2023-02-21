@@ -17,7 +17,7 @@ resource "aws_kms_key" "tfstate_encryption_key" {
 
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "tfstate-xyz"
-  acl = "private"
+  acl    = "private"
 
   lifecycle {
     prevent_destroy = true
