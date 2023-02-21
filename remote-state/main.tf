@@ -4,18 +4,18 @@ provider "aws" {
 
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "tfstate"
-     
+
   lifecycle {
     prevent_destroy = true
   }
 }
 
 resource "aws_s3_bucket_versioning" "terraform_state" {
-    bucket = aws_s3_bucket.terraform_state.id
+  bucket = aws_s3_bucket.terraform_state.id
 
-    versioning_configuration {
-      status = "Enabled"
-    }
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
 
 resource "aws_dynamodb_table" "terraform_state_lock" {
@@ -31,8 +31,8 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
 }
 
 resource "aws_s3_bucket_policy" "terraform_state_encrypt" {
-  bucket = "${aws_s3_bucket.terraform_state.id}"
-  policy =<<EOF
+  bucket = aws_s3_bucket.terraform_state.id
+  policy = <<EOF
 {
   "Version": "2012-10-17",
   "Id": "RequireEncryption",
