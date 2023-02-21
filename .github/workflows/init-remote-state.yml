@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - "remote-state/**"
+      - "remote-state/**.tf"
       - "!remote-state/README.md"
   pull_request:
 
