@@ -15,8 +15,8 @@ resource "aws_kms_key" "terraform_state_kms_key" {
   deletion_window_in_days = 10
 }
 resource "aws_kms_alias" "terraform_state_key_alias" {
- name          = "alias/terraform-state-key"
- target_key_id = aws_kms_key.terraform_state_kms_key.key_id
+  name          = "alias/terraform-state-key"
+  target_key_id = aws_kms_key.terraform_state_kms_key.key_id
 }
 
 resource "aws_s3_bucket" "terraform_state" {
