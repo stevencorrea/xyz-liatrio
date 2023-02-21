@@ -1,9 +1,17 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-west-1"
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "tfstate"
+  bucket = "tfstate-xyz"
 
   lifecycle {
     prevent_destroy = true
