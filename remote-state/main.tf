@@ -30,7 +30,7 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
   }
 }
 
-resource "aws_s3_bucket_policy" "terraform_state_encrypt" {
+resource "aws_s3_bucket_policy" "terraform_state_encryption" {
   bucket = "${aws_s3_bucket.terraform_state.id}"
   policy =<<EOF
 {

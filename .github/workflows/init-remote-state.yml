@@ -12,8 +12,21 @@ permissions:
   contents: read
 
 jobs:
+  defaults:
+    run:
+      working-directory: 'remote-state'
+  aws:
+    name: 'AWS Configure'
+    runs-on: ubuntu-latest
+    - name: Configure AWS Credentials Action For GitHub Actions
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+        aws-region: us-west-2
+
   terraform:
-    name: 'Terraform'
+    name: 'Terraform Init/Plan/Apply'
     runs-on: ubuntu-latest
     environment: production
 
