@@ -29,7 +29,6 @@ provider "aws" {
 }
 
 resource "null_resource" "test" {
-  description = "testing for permissions to bucket"
 }
 
 # locals {
