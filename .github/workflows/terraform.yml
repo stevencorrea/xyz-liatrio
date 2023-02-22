@@ -6,6 +6,8 @@ on:
     paths:
       - "terraform/*.tf"
   pull_request:
+    paths:
+    - "terraform/*.tf"
 
 permissions:
   contents: read
