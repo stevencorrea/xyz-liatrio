@@ -6,7 +6,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = var.terraform_state_bucket_name
+    bucket         = "xyz-terraform-state-liatrio"
     region         = "us-west-1"
     key            = "xyz-terraform-state-liatrio/terraform.tfstate"
     encrypt        = true

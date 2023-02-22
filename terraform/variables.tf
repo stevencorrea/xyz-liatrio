@@ -4,12 +4,6 @@ variable "name" {
   default     = "xyz-liatrio"
 }
 
-variable "terraform_state_bucket_name" {
-  description = "Bucket name from init-remote-state output"
-  type        = string
-  default     = "xyz-terraform-state-liatrio"
-}
-
 variable "cluster_version" {
   description = "Version of k8s for EKS"
   type        = string
