@@ -12,6 +12,9 @@ terraform {
     encrypt        = true
     kms_key_id     = "alias/terraform-state-key"
     dynamodb_table = "app-state"
+    access_key = "${var.access_key}"
+    secret_key = "${var.secret_key}"
+
   }
 }
 
@@ -95,3 +98,11 @@ module "eks" {
     }
   }
 }
+
+  data “aws_eks_cluster” “cluster” {
+    name = module.eks.cluster_id
+  }
+
+  data “aws_eks_cluster_auth” “cluster” {
+    name = module.eks.cluster_id
+  }
