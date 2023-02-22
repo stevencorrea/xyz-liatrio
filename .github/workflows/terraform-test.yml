@@ -1,11 +1,8 @@
-name: 'Terraform'
+name: 'Test Terraform'
 
 on:
-  push:
-    branches: [ "main" ]
-    paths:
-      - "terraform/*.tf"
   pull_request:
+    branches: [ "main" ]
     paths:
     - "terraform/*.tf"
 
@@ -15,7 +12,7 @@ permissions:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Terraform Test'
     runs-on: ubuntu-latest
     environment: production
 
@@ -65,12 +62,11 @@ jobs:
       run: terraform plan -input=false -no-color
 
     - uses: actions/github-script@v6
-      if: github.event_name == 'pull_request'
       env:
         PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
         tf_actions_working_dir: 'terraform'
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}        
         script: |
           // 1. Retrieve existing bot comments for the PR
           const { data: comments } = await github.rest.issues.listComments({
@@ -122,9 +118,3 @@ jobs:
               body: output
             })
           }
-
-      # On push to "main", build or change infrastructure according to Terraform configuration files
-    - name: Terraform Apply
-      if: github.event.pull_request.merged == true
-      #if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
-      run: terraform apply -auto-approve -input=false
