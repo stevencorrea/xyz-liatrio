@@ -1,7 +1,6 @@
 name: 'Test Init Remote State'
 
 on:
-  push:
   pull_request:
     branches: [ "main" ]
     paths: 
