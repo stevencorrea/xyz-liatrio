@@ -16,9 +16,3 @@ variable "azs" {
   type        = list(any)
   default     = ["us-west-1a", "us-west-1b", "us-west-1c"]
 }
-
-variable "test" {
-  description = "just a test"
-  type        = string
-  default     = "test string"
-}
