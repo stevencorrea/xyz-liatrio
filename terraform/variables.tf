@@ -17,9 +17,3 @@ variable "cluster_version" {
   default     = "1.24"
 
 }
-
-variable "azs" {
-  description = "Availability Zones to deploy nodes into"
-  type        = list(any)
-  default     = ["${var.region}a", "${var.region}b", "${var.region}c"]
-}
