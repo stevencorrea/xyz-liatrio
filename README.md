@@ -31,7 +31,7 @@ GitHub workflows contained inside of the `.github` directory execute on the foll
 
 To build and run the server:
 ```shell
-npm install && node start
+npm install && node start.js
 ```
 
 To run tests against the server:
