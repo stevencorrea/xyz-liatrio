@@ -9,14 +9,14 @@ This project assumes the following are set in the [Secrets of the repository](ht
 * SECRET_KEY (The corresponding AWS Secret Key)
 
 ### Resources Created
-On Terraform Apply of `init-remote-state`, Terraform will provision the following resources into AWS us-west-1:
+On Terraform Apply of `init-remote-state`, Terraform will provision the following resources into AWS:
 
 * Versioned, encrypted and private S3 bucket for State storage
 * KMS key and alias used for Server Side Encryption (SSE) of S3 bucket
 * DynamoDB table for [state locking and consistency checking](https://developer.hashicorp.com/terraform/language/settings/backends/s3)
 * Policies for the above resources
 
-On Terraform Apply of `terraform`, Terraform will provision the following resources into AWS us-west-1:
+On Terraform Apply of `terraform`, Terraform will provision the following resources into AWS:
 
 * A VPC consisting of 3 public and 3 private subnets (one for each availability zone)
 * A NAT Gateway for the instances to access the internet
