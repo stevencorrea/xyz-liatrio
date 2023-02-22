@@ -73,7 +73,7 @@ module "eks" {
     green = {
       name = "green-node-group"
 
-      instance_types = [t3.small]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 3
@@ -83,7 +83,7 @@ module "eks" {
     blue = {
       name = "blue-node-group"
 
-      instance_types = [t3.small]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 2
