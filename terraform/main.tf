@@ -12,9 +12,6 @@ terraform {
     encrypt        = true
     kms_key_id     = "alias/terraform-state-key"
     dynamodb_table = "app-state"
-    access_key     = var.access_key
-    secret_key     = var.secret_key
-
   }
 }
 

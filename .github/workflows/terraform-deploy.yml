@@ -52,4 +52,7 @@ jobs:
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
-      run: terraform apply -auto-approve -input=false -var 'access_key=$aws-access-key-id' -var 'secretkey=$aws-secret-access-key'
+      with:
+        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        AWS_SECRET_KEY_ID: ${{ secrets.SECRET_KEY }}
+      run: terraform apply -auto-approve -input=false
