@@ -40,6 +40,11 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
 
+    # We still want to plan for deploy in the event that an admin merges to main directly
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -input=false
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       id: init
