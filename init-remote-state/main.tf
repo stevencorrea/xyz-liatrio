@@ -1,5 +1,6 @@
 # This file provisions the infrastructure required for terraform to store it's state in a remote s3 backend.
 # This is intended to be ran once to establish resources for storing terraform state.
+# This is going to use 2 pipelines - one to test one to deploy
 
 terraform {
   required_providers {
