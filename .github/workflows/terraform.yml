@@ -61,7 +61,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       id: plan
-      run: terraform plan -input=false
+      run: terraform plan -input=false -no-color
 
     - uses: actions/github-script@v6
       if: github.event_name == 'pull_request'
