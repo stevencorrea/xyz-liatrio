@@ -1,4 +1,4 @@
-name: 'Terraform Init Remote State'
+name: 'Test Init Remote State'
 
 on:
   push:
@@ -15,12 +15,13 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   terraform:
     name: 'Terraform Init/Plan/Apply'
     runs-on: ubuntu-latest
-    environment: production
+    environment: test
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -58,9 +59,3 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -input=false
-
-      # On push to "main", build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
-    - name: Terraform Apply
-      if: github.event.pull_request.merged == true
-      run: terraform apply -auto-approve -input=false
