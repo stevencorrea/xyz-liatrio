@@ -1,3 +1,5 @@
+# Just a null resource to test terraform state
+
 terraform {
   required_providers {
     aws = {
