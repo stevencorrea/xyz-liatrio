@@ -28,7 +28,7 @@ provider "aws" {
   }
 }
 
-resource "null_ressource" "test" {
+resource "null_resource" "test" {
   description = "testing for permissions to bucket"
 }
 
