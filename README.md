@@ -24,8 +24,20 @@ On Terraform Apply of `terraform`, Terraform will provision the following resour
 
 ### How to run
 GitHub workflows contained inside of the `.github` directory execute on the following:
+
 `init-remote-state`: change to .tf in `init-remote-state`
+
 `terraform`: change to .tf in `terraform`
+
+To build and run the server:
+```shell
+npm install && node start
+```
+
+To run tests against the server:
+``` shell
+jest test
+```
 
 ### What's Running
 Eventually, a node app will be served on the EKS cluster provisioned above...
