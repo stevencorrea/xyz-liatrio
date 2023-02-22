@@ -1,0 +1,8 @@
+node_modules
+terraform
+init-remote-state
+docs
+.github
+jest.config.jest
+README.md
+server.test.js
