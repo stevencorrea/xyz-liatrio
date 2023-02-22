@@ -1,3 +1,5 @@
+# This file provisions the infrastructure required for terraform to store it's state in a remote s3 backend.
+
 terraform {
   required_providers {
     aws = {
