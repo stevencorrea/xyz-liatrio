@@ -19,6 +19,6 @@ variable "azs" {
 
 variable "test" {
   description = "just a test"
-  type = string
-  default = "test string"
+  type        = string
+  default     = "test string"
 }
