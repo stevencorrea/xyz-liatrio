@@ -20,11 +20,11 @@ variable "cluster_version" {
 
 variable "access_key" {
   description = "AWS Access Key"
-  type = string
+  type        = string
 }
 
 variable "secret_key" {
   description = "AWS Secret Key"
-  type = string
-  sensitive = true
+  type        = string
+  sensitive   = true
 }
