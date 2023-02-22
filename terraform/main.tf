@@ -16,6 +16,8 @@ terraform {
 
 provider "aws" {
   region = "us-west-1"
+
+  # Maybe we tag these resources by client to determin billbacks in a shared environment
   default_tags {
     tags = {
       Client       = "xyz"
