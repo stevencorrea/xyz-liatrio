@@ -1,8 +1,8 @@
 name: 'Terraform Test'
 
 on:
-  push:
   pull_request:
+    branches: [ "main" ]
     paths:
     - "terraform/*.tf"
 
@@ -64,9 +64,9 @@ jobs:
     - uses: actions/github-script@v6
       env:
         PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
         tf_actions_working_dir: 'terraform'
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}        
         script: |
           // 1. Retrieve existing bot comments for the PR
           const { data: comments } = await github.rest.issues.listComments({
