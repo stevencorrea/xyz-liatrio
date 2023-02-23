@@ -55,7 +55,14 @@ az ad sp create-for-rbac --name "myApp" --role owner \
 --sdk-auth
 
 
-Enable the compute provider 
+*** Ensure the compute provider is enabled. 
+I was not able to get passed Terraform trying to register all providers using the service principal credentials. Attempted as owner and contributor
+More on that here: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#skip_provider_registration
+
+import the resource group we made earlier:
+```bash
+terraform import azurerm_resource_group.xyz-liatrio /subscriptions/b9009040-4a5e-47c8-833e-44bdbe7d3423/resourceGroups/xyz-liatrio
+```
 
 ### Resources
 [Instructions to set these resources up via portal, cli or powershell](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)
