@@ -46,10 +46,10 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   dns_prefix          = "xyz-aks-cluster"
 
   default_node_pool {
-    name            = "default"
-    node_count      = 3
-    vm_size         = "Standard_D2_v2"
-    type            = "VirtualMachineScaleSets"
+    name       = "default"
+    node_count = 3
+    vm_size    = "Standard_D2_v2"
+    type       = "VirtualMachineScaleSets"
   }
   # We don't really care about the nodes, just need a cluster
   identity {
