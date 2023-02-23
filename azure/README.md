@@ -49,11 +49,18 @@ AZURE_CLIENT_ID	Application (client) ID
 AZURE_TENANT_ID	Directory (tenant) ID
 AZURE_SUBSCRIPTION_ID	Subscription ID
 
+Make a SP for the runner to use:
+az ad sp create-for-rbac --name "myApp" --role owner \
+--scopes /subscriptions/$subID/resourceGroups/xyz-liatrio \
+--sdk-auth
+
+
 
 
 ### Resources
 [Instructions to set these resources up via portal, cli or powershell](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)
 [Use GH Actions to connect to Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
+[Azure workflow Samples](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md)
 
 [Attaching a Container Registry to a Kubernetes Cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry#example-usage-attaching-a-container-registry-to-a-kubernetes-cluster)
 [Service Principal for AKS and ACR Communication](https://stackoverflow.com/questions/53771773/azure-acr-how-to-assign-service-principle-through-terraform)
