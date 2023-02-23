@@ -33,9 +33,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Azure Container Registry Login
-      uses: Azure/docker-login@v1
+      uses: azure/docker-login@v1
       with:
         login-server: xyzacrliatrio.azurecr.io
-      - run: |
-          docker build . -t xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
-          docker push xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
+      run: |
+        docker build . -t xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
+        docker push xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
