@@ -36,8 +36,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: xyzacrliatrio.azurecr.io
-    
-    - name: Build and push image  
+
+    - name: Build and Push Image  
       run: |
         docker build . -t xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
         docker push xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
