@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: xyzapp
-        images: xyzacrliatrio.azurecr.io/xyzapp:f0a34fdd215ca37bac3d5906246c799a6dbf224a
+        image: xyzacrliatrio.azurecr.io/xyzapp:f0a34fdd215ca37bac3d5906246c799a6dbf224a
         resources:
           limits:
             memory: "128Mi"
