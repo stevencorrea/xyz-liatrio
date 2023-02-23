@@ -29,8 +29,8 @@ resource "azurerm_resource_group" "xyz-prod" {
 }
 
 # Create our ACR
-resource "azurerm_container_registry" "xyz-acr" {
-  name                = "xyz-acr"
+resource "azurerm_container_registry" "xyzacrliatrio" {
+  name                = "xyzacrliatrio"
   resource_group_name = azurerm_resource_group.xyz-prod.name
   location            = azurerm_resource_group.xyz-prod.location
   sku                 = "Basic"
@@ -64,14 +64,14 @@ resource "azurerm_kubernetes_service_principal" "acr-aks-sp" {
   role_definition_name = "AcrPull"
   role_definition_id   = "/subscriptions/b9009040-4a5e-47c8-833e-44bdbe7d3423/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d"
 
-  depends_on = [azurerm_container_registry.xyz-acr]
+  depends_on = [azurerm_container_registry.xyzacrliatrio]
 
   service_principal_id = azurerm_kubernetes_cluster.xyz-aks-cluster.identity[0].principal_id
-  client_id            = azurerm_container_registry.xyz-acr.login_server
+  client_id            = azurerm_container_registry.xyzacrliatrio.login_server
 }
 
 resource "azurerm_role_assignment" "acr-aks-sp-role" {
-  scope                = azurerm_container_registry.xyz-acr.id
+  scope                = azurerm_container_registry.xyzacrliatrio.id
   role_definition_name = "AcrPull"
   principal_id         = azurerm_kubernetes_cluster.xyz-aks-cluster.identity[0].principal_id
 }
