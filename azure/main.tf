@@ -60,7 +60,7 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 # Only give our sp the built in AcrPull role
 # az role definition list --name AcrPull
 # https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions-list
-resource "azuread_service_principal" "ask-sp" {
+resource "azurerm_azuread_service_principal" "ask-sp" {
   application_id = "42e9ad34-859c-4518-a56e-34cc276356f5"
 }
 
