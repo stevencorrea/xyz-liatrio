@@ -62,6 +62,12 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   }
 }
 
+resource "azurerm_role_assignment" "aks-acr-role" {
+  scope                = data.azurerm_container_registry.acr_name.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_kubernetes_cluster.xyz-aks-cluster.kubelet_identity[0].object_id
+}
+
 # Output kconfig - not at all ideal TODO: put in a secret
 output "kube_config" {
   value     = azurerm_kubernetes_cluster.xyz-aks-cluster.kube_config_raw
