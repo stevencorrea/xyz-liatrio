@@ -39,7 +39,7 @@ env:
   CONTAINER_NAME: "xyzapp"
   RESOURCE_GROUP: "xyz-liatrio"
   CLUSTER_NAME: "xyz-aks-cluster"
-  DEPLOYMENT_MANIFEST_PATH: "manifests/xyzapp.yaml"
+  DEPLOYMENT_MANIFEST_PATH: "manifests/"
 
 jobs:
   buildImage:
