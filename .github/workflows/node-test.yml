@@ -1,11 +1,6 @@
 name: 'Test Node App'
 
 on:
-  push:
-    branches: [ "main" ]
-    paths: 
-    - "**.js"
-    - "**.json"
   pull_request:
     branches: [ "main" ]
     paths: 
