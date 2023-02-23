@@ -7,6 +7,7 @@ WORKDIR /xyzapp
 
 COPY ["app/", "/xyzapp"]
 
+RUN npm install express
 RUN npm install --omit-dev
 
 COPY . .
