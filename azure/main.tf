@@ -36,8 +36,8 @@ resource "azurerm_resource_group" "xyz-liatrio" {
 # Create our ACR
 resource "azurerm_container_registry" "xyzacrliatrio" {
   name                = "xyzacrliatrio"
-  resource_group_name = azurerm_resource_group.xyz-liatrio.name
   location            = azurerm_resource_group.xyz-liatrio.location
+  resource_group_name = azurerm_resource_group.xyz-liatrio.name
   sku                 = "Basic"
   admin_enabled       = true
 }
@@ -51,7 +51,7 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 
   default_node_pool {
     name       = "default"
-    node_count = 3
+    node_count = 1
     os_sku     = "Ubuntu"
     vm_size    = "Standard_D2_v2"
     type       = "VirtualMachineScaleSets"
