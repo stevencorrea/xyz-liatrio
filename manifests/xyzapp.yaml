@@ -26,8 +26,3 @@ spec:
             port: 3000
           initialDelaySeconds: 2
           periodSeconds: 2
-        readinessProbe:
-          exec:
-            command:
-              - wget
-              - "-O - 127.0.0.1:3000 > /dev/null"
