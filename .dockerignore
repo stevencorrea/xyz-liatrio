@@ -1,8 +1,12 @@
 terraform
-aws/init-remote-state
+node_modules
+aws
+azure
 docs
-.github
-jest.config.jest
+
+app/jest.config.jest
 README.md
-server.test.js
+app/server.test.js
+
+.github
 .terraform
