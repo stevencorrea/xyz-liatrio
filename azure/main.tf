@@ -39,15 +39,16 @@ resource "azurerm_container_registry" "xyzacrliatrio" {
   resource_group_name = azurerm_resource_group.xyz-liatrio.name
   location            = azurerm_resource_group.xyz-liatrio.location
   sku                 = "Basic"
-  admin_enabled       = false
+  admin_enabled       = true
 }
 
 # Create our AKS cluster
 resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
-  name                = "xyz-aks-cluster"
-  location            = azurerm_resource_group.xyz-liatrio.location
-  resource_group_name = azurerm_resource_group.xyz-liatrio.name
-  dns_prefix          = "xyz-aks-cluster"
+  name                              = "xyz-aks-cluster"
+  location                          = azurerm_resource_group.xyz-liatrio.location
+  resource_group_name               = azurerm_resource_group.xyz-liatrio.name
+  dns_prefix                        = "xyz-aks-cluster"
+  role_based_access_control_enabled = true
 
   default_node_pool {
     name       = "default"
