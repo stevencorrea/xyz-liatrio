@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xyzapp
+spec:
+  selector:
+    matchLabels:
+      app: xyzapp
+  template:
+    metadata:
+      labels:
+        app: xyzapp
+    spec:
+      containers:
+      - name: xyzapp
+        image: xyzacrliatrio.azurecr.io/xyzapp
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
