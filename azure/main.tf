@@ -56,9 +56,16 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
     vm_size    = "Standard_D2_v2"
     type       = "VirtualMachineScaleSets"
   }
-  # We don't really care about the nodes, just need a cluster
+  # Let Azure manage identity for the cluster
   identity {
     type = "SystemAssigned"
+  }
+
+  # Enable http routing for ingress controller
+  addon_profile {
+    http_application_routing {
+      enabled = true
+    }
   }
 }
 
