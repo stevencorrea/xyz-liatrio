@@ -12,6 +12,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: release-name-xyzchart
+                name: xyz-app-service-xyzchart
                 port:
                   number: 3000
