@@ -35,7 +35,6 @@ resource "azurerm_container_registry" "xyz-acr" {
   location                 = azurerm_resource_group.xyz-prod.location
   sku                      = "Basic"
   admin_enabled            = false
-  georeplication_locations = ["westus"]
 }
 
 # Create our AKS cluster
