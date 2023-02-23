@@ -3,9 +3,9 @@
 FROM node:lts-alpine
 ENV NODE_ENV=production
 
-WORKDIR /app
+WORKDIR /xyzapp
 
-COPY ["package.json", "package-lock.json*", "./"]
+COPY ["app/package.json", "app/package-lock.json", "./"]
 
 RUN npm install --omit-dev
 
