@@ -48,7 +48,6 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   location                          = azurerm_resource_group.xyz-liatrio.location
   resource_group_name               = azurerm_resource_group.xyz-liatrio.name
   dns_prefix                        = "xyz-aks-cluster"
-  role_based_access_control_enabled = true
 
   default_node_pool {
     name       = "default"
