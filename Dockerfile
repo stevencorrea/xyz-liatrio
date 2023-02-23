@@ -5,8 +5,9 @@ ENV NODE_ENV=production
 
 WORKDIR /xyzapp
 
-COPY ["app/", "/xyzapp"]
+COPY ["app/", "xyzapp"]
 
+RUN cd xyzapp
 RUN npm install express
 RUN npm install --omit-dev
 
