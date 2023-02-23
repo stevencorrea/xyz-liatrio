@@ -27,7 +27,7 @@ jobs:
     - run: npm test
 
     # Logs in with your Azure credentials
-    - name: Azure login
+    - name: Azure Login
       uses: azure/login@v1.4.6
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -36,6 +36,8 @@ jobs:
       uses: azure/docker-login@v1
       with:
         login-server: xyzacrliatrio.azurecr.io
+    
+    - name: Build and push image  
       run: |
         docker build . -t xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
         docker push xyzacrliatrio.azurecr.io/xyzapp:${{ github.sha }}
