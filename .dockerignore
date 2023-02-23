@@ -6,3 +6,4 @@ docs
 jest.config.jest
 README.md
 server.test.js
+.terraform
