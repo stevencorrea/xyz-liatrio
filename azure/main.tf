@@ -60,14 +60,8 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 # Only give our sp the built in AcrPull role
 # az role definition list --name AcrPull
 # https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions-list
-resource "azurerm_kubernetes_service_principal" "acr-aks-sp" {
-  role_definition_name = "AcrPull"
-  role_definition_id   = "/subscriptions/b9009040-4a5e-47c8-833e-44bdbe7d3423/providers/Microsoft.Authorization/roleDefinitions/7f951dda-4ed3-4680-a7ca-43fe172d538d"
-
-  depends_on = [azurerm_container_registry.xyzacrliatrio]
-
-  service_principal_id = azurerm_kubernetes_cluster.xyz-aks-cluster.identity[0].principal_id
-  client_id            = azurerm_container_registry.xyzacrliatrio.login_server
+resource "azuread_service_principal" "ask-sp" {
+  application_id = "42e9ad34-859c-4518-a56e-34cc276356f5"
 }
 
 resource "azurerm_role_assignment" "acr-aks-sp-role" {
