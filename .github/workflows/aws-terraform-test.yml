@@ -1,10 +1,10 @@
-name: 'Test Terraform'
+name: 'Test AWS Tf'
 
 on:
   pull_request:
     branches: [ "main" ]
     paths:
-    - "terraform/*.tf"
+    - "aws/terraform/*.tf"
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: 'terraform'
+        working-directory: 'aws/terraform'
 
     steps:
     # Checkout the repository to the GitHub Actions runner
