@@ -54,6 +54,10 @@ az ad sp create-for-rbac --name "myApp" --role owner \
 --scopes /subscriptions/$subID/resourceGroups/xyz-liatrio \
 --sdk-auth
 
+*** Ensure the following providers are enabled:
+* Microsoft.compute
+* Microsoft.ContainerRegistry
+* Microsoft.ContainerService
 
 *** Ensure the following providers are enabled:
 * Microsoft.compute
