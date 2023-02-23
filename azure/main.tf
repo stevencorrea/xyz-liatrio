@@ -20,6 +20,7 @@ terraform {
 # Invoke AzureRM
 provider "azurerm" {
   features {}
+  skip_provider_registration = true
 }
 
 # resource "null_resource" "is-the-rube-machine-turing-complete" {
