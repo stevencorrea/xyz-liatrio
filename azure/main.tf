@@ -48,6 +48,8 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   location            = azurerm_resource_group.xyz-liatrio.location
   resource_group_name = azurerm_resource_group.xyz-liatrio.name
   dns_prefix          = "xyz-aks-cluster"
+  # Enable http routing for ingress controller
+  http_application_routing_enabled = true
 
   default_node_pool {
     name       = "default"
@@ -61,12 +63,6 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
     type = "SystemAssigned"
   }
 
-  # Enable http routing for ingress controller
-  addon_profile {
-    http_application_routing {
-      enabled = true
-    }
-  }
 }
 
 resource "azurerm_role_assignment" "aks-acr-role" {
