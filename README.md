@@ -9,7 +9,7 @@ This project assumes the following are set in the [Secrets of the repository](ht
 * SECRET_KEY (The corresponding AWS Secret Key)
 
 ### Resources Created
-On Terraform Apply of `init-remote-state`, Terraform will provision the following resources into AWS:
+On Terraform Apply of `aws/init-remote-state`, Terraform will provision the following resources into AWS:
 
 * Versioned, encrypted and private S3 bucket for State storage
 * KMS key and alias used for Server Side Encryption (SSE) of S3 bucket
@@ -25,7 +25,7 @@ On Terraform Apply of `terraform`, Terraform will provision the following resour
 ### How to run
 GitHub workflows contained inside of the `.github` directory execute on the following:
 
-`init-remote-state`: change to .tf in `init-remote-state`
+`aws/init-remote-state`: change to .tf in `aws/init-remote-state`
 
 `terraform`: change to .tf in `terraform`
 

@@ -1,11 +1,11 @@
-name: 'Test Init Remote State'
+name: 'Test S3 Remote State'
 
 on:
   pull_request:
     branches: [ "main" ]
     paths: 
-      - "init-remote-state/*.tf"
-      - "!init-remote-state/README.md"
+      - "aws/init-remote-state/*.tf"
+      - "!aws/init-remote-state/README.md"
 
 
 permissions:
@@ -22,7 +22,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: 'init-remote-state'
+        working-directory: 'aws/init-remote-state'
 
     steps:
     # Checkout the repository to the GitHub Actions runner

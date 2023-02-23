@@ -4,8 +4,8 @@ on:
   push:
     branches: [ "main" ]
     paths: 
-      - "init-remote-state/*.tf"
-      - "!init-remote-state/README.md"
+      - "aws/init-remote-state/*.tf"
+      - "!aws/init-remote-state/README.md"
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: 'init-remote-state'
+        working-directory: 'aws/init-remote-state'
 
     steps:
     # Checkout the repository to the GitHub Actions runner
