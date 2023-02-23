@@ -1,4 +1,4 @@
-name: 'Test AWS Tf'
+name: 'Test AWS Terraform'
 
 on:
   pull_request:
