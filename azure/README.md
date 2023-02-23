@@ -50,5 +50,11 @@ AZURE_TENANT_ID	Directory (tenant) ID
 AZURE_SUBSCRIPTION_ID	Subscription ID
 
 
+
+### Resources
 [Instructions to set these resources up via portal, cli or powershell](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)
 [Use GH Actions to connect to Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
+
+[Attaching a Container Registry to a Kubernetes Cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry#example-usage-attaching-a-container-registry-to-a-kubernetes-cluster)
+[Service Principal for AKS and ACR Communication](https://stackoverflow.com/questions/53771773/azure-acr-how-to-assign-service-principle-through-terraform)
+[AKS Cluster and attachment](https://jimferrari.com/2022/02/09/attach-azure-container-registry-to-azure-kubernetes-service-terraform/)
