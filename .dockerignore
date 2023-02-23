@@ -3,9 +3,9 @@ node_modules
 aws
 azure
 docs
-
-app/jest.config.jest
 README.md
+
+app/jest.config.js
 app/server.test.js
 
 .github

@@ -5,7 +5,7 @@ ENV NODE_ENV=production
 
 WORKDIR /xyzapp
 
-COPY ["app/package.json", "app/package-lock.json", "./"]
+COPY ["app/", "/xyzapp"]
 
 RUN npm install --omit-dev
 
