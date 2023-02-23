@@ -1,4 +1,4 @@
-name: 'Test S3 Remote State'
+name: 'Test AWS Remote State'
 
 on:
   pull_request:

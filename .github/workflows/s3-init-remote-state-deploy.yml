@@ -1,4 +1,4 @@
-name: 'Deploy Init Remote State'
+name: 'Deploy AWS Remote State'
 
 on:
   push:

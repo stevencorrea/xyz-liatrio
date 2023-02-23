@@ -1,4 +1,4 @@
-name: 'Deploy Azure AKS'
+name: 'Deploy Azure Terraform for AKS'
 
 on:
   push:
