@@ -69,7 +69,7 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 # }
 
 # resource "azurerm_serv" "name" {
-  
+
 # }
 
 # resource "azurerm_role_assignment" "acr-aks-sp-role" {
