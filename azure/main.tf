@@ -31,8 +31,8 @@ resource "azurerm_resource_group" "xyz-liatrio" {
 # Create our ACR
 resource "azurerm_container_registry" "xyzacrliatrio" {
   name                = "xyzacrliatrio"
-  resource_group_name = azurerm_resource_group.xyz-prod.name
-  location            = azurerm_resource_group.xyz-prod.location
+  resource_group_name = azurerm_resource_group.xyz-liatrio.name
+  location            = azurerm_resource_group.xyz-liatrio.location
   sku                 = "Basic"
   admin_enabled       = false
 }
@@ -40,8 +40,8 @@ resource "azurerm_container_registry" "xyzacrliatrio" {
 # Create our AKS cluster
 resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   name                = "xyz-aks-cluster"
-  location            = azurerm_resource_group.xyz-prod.location
-  resource_group_name = azurerm_resource_group.xyz-prod.name
+  location            = azurerm_resource_group.xyz-liatrio.location
+  resource_group_name = azurerm_resource_group.xyz-liatrio.name
   dns_prefix          = "xyz-aks-cluster"
 
   default_node_pool {
