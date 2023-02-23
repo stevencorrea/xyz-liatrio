@@ -17,7 +17,7 @@ terraform {
   }
 }
 
-# Invoke Azure
+# Invoke AzureRM
 provider "azurerm" {
   features {}
 }
@@ -56,19 +56,19 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   }
 }
 
-# Attach our ACR to the AKS cluster via SP
-# Only give our sp the built in AcrPull role
-# az role definition list --name AcrPull
-# https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions-list
-resource "azurerm_azuread_service_principal" "ask-sp" {
-  application_id = "42e9ad34-859c-4518-a56e-34cc276356f5"
-}
+# # Attach our ACR to the AKS cluster via SP
+# # Only give our sp the built in AcrPull role
+# # az role definition list --name AcrPull
+# # https://learn.microsoft.com/en-us/azure/role-based-access-control/role-definitions-list
+# resource "azurerm_azuread_service_principal" "ask-sp" {
+#   application_id = "42e9ad34-859c-4518-a56e-34cc276356f5"
+# }
 
-resource "azurerm_role_assignment" "acr-aks-sp-role" {
-  scope                = azurerm_container_registry.xyzacrliatrio.id
-  role_definition_name = "AcrPull"
-  principal_id         = azurerm_kubernetes_cluster.xyz-aks-cluster.identity[0].principal_id
-}
+# resource "azurerm_role_assignment" "acr-aks-sp-role" {
+#   scope                = azurerm_container_registry.xyzacrliatrio.id
+#   role_definition_name = "AcrPull"
+#   principal_id         = azurerm_kubernetes_cluster.xyz-aks-cluster.identity[0].principal_id
+# }
 
 # Output kconfig
 output "kube_config" {
