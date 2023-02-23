@@ -30,11 +30,11 @@ resource "azurerm_resource_group" "xyz-prod" {
 
 # Create our ACR
 resource "azurerm_container_registry" "xyz-acr" {
-  name                     = "xyz-acr"
-  resource_group_name      = azurerm_resource_group.xyz-prod.name
-  location                 = azurerm_resource_group.xyz-prod.location
-  sku                      = "Basic"
-  admin_enabled            = false
+  name                = "xyz-acr"
+  resource_group_name = azurerm_resource_group.xyz-prod.name
+  location            = azurerm_resource_group.xyz-prod.location
+  sku                 = "Basic"
+  admin_enabled       = false
 }
 
 # Create our AKS cluster
