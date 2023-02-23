@@ -55,7 +55,7 @@ az ad sp create-for-rbac --name "myApp" --role owner \
 --sdk-auth
 
 
-
+Enable the compute provider 
 
 ### Resources
 [Instructions to set these resources up via portal, cli or powershell](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)

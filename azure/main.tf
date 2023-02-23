@@ -79,7 +79,8 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 #   principal_id         = azurerm_kubernetes_cluster.xyz-aks-cluster.identity[0].principal_id
 # }
 
-# Output kconfig
+# Output kconfig - not at all ideal TODO: put in a secret
 output "kube_config" {
   value = azurerm_kubernetes_cluster.xyz-aks-cluster.kube_config_raw
+  sensitive = true
 }
