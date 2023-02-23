@@ -81,6 +81,6 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 
 # Output kconfig - not at all ideal TODO: put in a secret
 output "kube_config" {
-  value = azurerm_kubernetes_cluster.xyz-aks-cluster.kube_config_raw
+  value     = azurerm_kubernetes_cluster.xyz-aks-cluster.kube_config_raw
   sensitive = true
 }
