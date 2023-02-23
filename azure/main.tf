@@ -52,6 +52,7 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   default_node_pool {
     name       = "default"
     node_count = 3
+    os_sku     = "Ubuntu"
     vm_size    = "Standard_D2_v2"
     type       = "VirtualMachineScaleSets"
   }

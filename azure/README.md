@@ -55,7 +55,11 @@ az ad sp create-for-rbac --name "myApp" --role owner \
 --sdk-auth
 
 
-*** Ensure the compute provider is enabled. 
+*** Ensure the following providers are enabled:
+* Microsoft.compute
+* Microsoft.ContainerRegistry
+* Microsoft.ContainerService
+
 I was not able to get passed Terraform trying to register all providers using the service principal credentials. Attempted as owner and contributor
 More on that here: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#skip_provider_registration
 
