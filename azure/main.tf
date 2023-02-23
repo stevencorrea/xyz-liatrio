@@ -8,6 +8,16 @@ terraform {
       name = "xyz-liatrio-azure"
     }
   }
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.44.1"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
 }
 
 # An example resource that does nothing.
