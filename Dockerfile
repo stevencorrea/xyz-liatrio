@@ -3,11 +3,10 @@
 FROM node:lts-alpine
 ENV NODE_ENV=production
 
-WORKDIR /xyzapp
+WORKDIR /
 
-COPY ["app/", "xyzapp"]
+COPY ["app/", "./"]
 
-RUN cd xyzapp
 RUN npm install express
 RUN npm install --omit-dev
 
