@@ -29,7 +29,7 @@ provider "azurerm" {
 
 # Imported resource
 resource "azurerm_resource_group" "xyz-liatrio" {
-  name     = "xyz-liatrio"
+  name     = "xyz-liatrio-prod"
   location = "westus"
 }
 
