@@ -18,9 +18,9 @@ Create a Resource group
 az group create --name xyz-liatrio --location westus
 ```
 
-Make a Service Principal for the runner to use:
+Make a Service Principal for the runner to use. We assign the owner role as it creates a service principal for the eks cluster:
 ```bash
-az ad sp create-for-rbac --name "$myApp" --role Contributor \
+az ad sp create-for-rbac --name "$myApp" --role Owner \
 --scopes /subscriptions/$subID/resourceGroups/xyz-liatrio \
 --sdk-auth
 ```
@@ -45,8 +45,6 @@ cd azure
 terraform login
 terraform init
 terraform import azurerm_resource_group.xyz-liatrio /subscriptions/b9009040-4a5e-47c8-833e-44bdbe7d3423/resourceGroups/xyz-liatrio
-terraform plan
-terraform apply
 ```
 
 We can now deploy resource into our resource group. Merge the change and apply the terraform!
