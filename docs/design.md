@@ -10,7 +10,7 @@ With that in mind, I added a lot of documentation, reference reading and hints i
 
 I also approached this thinking that once the infrastructure was defined, there would be little, if any iteration (similar to a conventional data center).
 
-Deleting and recreating the environment isn't as elegant as I'd like it to be. There is a cart/horse race condition where we need a resource group to grant the service principal
+Deleting and recreating the environment isn't as elegant as I'd like it to be. There is a cart/horse race condition in my implementation that involves some manual effort on the onset of the environment.
 
 Finally, I designed the (very) high level architecture diagram to be consumed by non-technical folk. The GH Action runner is applying the k8s manifest which is then reaching out to ACR for the image etc.
 

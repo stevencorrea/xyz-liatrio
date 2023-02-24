@@ -45,15 +45,22 @@ cd azure
 terraform login
 terraform init
 terraform import azurerm_resource_group.xyz-liatrio /subscriptions/b9009040-4a5e-47c8-833e-44bdbe7d3423/resourceGroups/xyz-liatrio
+terraform plan
+terraform apply
 ```
 
 We can now deploy resource into our resource group. Merge the change and apply the terraform!
 
 ### Resources
 [Instructions to set these resources up via portal, cli or powershell](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)
+
 [Use GH Actions to connect to Azure](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux)
+
 [Azure workflow Samples](https://github.com/Azure/actions-workflow-samples/blob/master/assets/create-secrets-for-GitHub-workflows.md)
 [Attaching a Container Registry to a Kubernetes Cluster](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_registry#example-usage-attaching-a-container-registry-to-a-kubernetes-cluster)
+
 [Service Principal for AKS and ACR Communication](https://stackoverflow.com/questions/53771773/azure-acr-how-to-assign-service-principle-through-terraform)
+
 [AKS Cluster and attachment](https://jimferrari.com/2022/02/09/attach-azure-container-registry-to-azure-kubernetes-service-terraform/)
+
 [Skip Provider Registration](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#skip_provider_registration)
