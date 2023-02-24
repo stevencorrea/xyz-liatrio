@@ -8,9 +8,12 @@ on:
       - "**.json"
 jobs:
   build:
-
+    defaults:
+      run:
+        shell: bash
+        working-directory: 'app'
     runs-on: ubuntu-latest
-
+    
     strategy:
       matrix:
         node-version: [19.6.0]
