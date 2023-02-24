@@ -22,12 +22,23 @@ Should you need to acces your cluster, this command merges the config into `~/.k
 az aks get-credentials --resource-group xyz-liatrio --name xyz-aks-cluster
 ```
 
-### Destruction
+### Resource Provisioned
+Terraform will provision the following resources into the Azure Resource group we import:
+* An Azure Container Registry
+* An Azure Kubernetes Cluster
+* An Azure Role Assignment
+
+### Effective Destruction
+* Comment out all resources but the imported resource group at the top of `azure/main.tf`
+
+### Total Destruction
 * Install the [Terraform CLI](https://developer.hashicorp.com/terraform/downloads) and log in: `terraform login`
 * `terraform plan -destroy -out=destroy.tfplan` then `terraform apply destroy.tfplan`
+
 Remember: 🐮 not 🐶 ...also, given that the resource group is imported, the [Azure environment will need to be reinitialized](https://github.com/stevencorrea/xyz-liatrio/blob/main/azure/README.md)
 
-#### Reference
+
+#### References
 Additional documentation is available in the [docs](https://github.com/stevencorrea/xyz-liatrio/tree/main/docs) directory.
 
 There is also a [wiki page](https://github.com/stevencorrea/xyz-liatrio/wiki/XYZ-Cloud-App-Deployment-–-Notes) that contains some personal notes about the project and development timeline.

@@ -27,7 +27,7 @@ provider "azurerm" {
 # resource "null_resource" "is-the-rube-machine-turing-complete" {
 # }
 
-#Imported resource
+# Imported resource
 resource "azurerm_resource_group" "xyz-liatrio" {
   name     = "xyz-liatrio"
   location = "westus"
