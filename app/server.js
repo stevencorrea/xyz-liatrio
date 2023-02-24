@@ -9,5 +9,4 @@ app.get('/', (req, res) => {
   "timestamp": Math.floor(Date.now() / 1000)})
 })
 
-// Required for Jest test
 module.exports = app
