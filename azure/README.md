@@ -1,4 +1,4 @@
-# Initialize Azure
+# Initialize Azure Environment
 
 To connect GitHub Actions to Azure, we need to configure a few resources manually.
 Replace anything with $syntax with the relevant value in your environment.
@@ -12,15 +12,20 @@ Log in to Azure:
 az login
 ```
 
+Create a Resource group
+```bash
+az group create --name xyz-liatrio --location westus
+```
+
 Make a Service Principal for the runner to use:
 ```bash
 az ad sp create-for-rbac --name "$myApp" --role Contributor \
---scopes /subscriptions/$subID/resourceGroups/$resourceGroupID \
+--scopes /subscriptions/$subID/resourceGroups/xyz-liatrio \
 --sdk-auth
 ```
 Store the output of the Service Principal as AZURE_CREDENTIALS in GitHub Secrets
 
-*** Ensure the following providers are enabled:
+*** Enable the Azure providers using the commands below (only needs to be done once):
 ```bash
 az provider register --namespace Microsoft.Compute
 az provider register --namespace Microsoft.ContainerRegistry
