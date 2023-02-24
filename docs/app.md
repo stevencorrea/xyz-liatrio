@@ -5,14 +5,12 @@ This is a simple app that satisfies the following requirement:
 
 This will be a Node app using the express framework to create an endpoint. We will serve the JSON payload upon a GET to the endpoint.
 
-~~ We will construct the message object by declaring a variable with the timestamp value invoking the Date.now() method. ~~
-
 We can construct the message _in_ the response in order for the message to display the current time. 
 
 Because Date.now()'s value is returned in ms, we will also leverage Math.floor() and divide the result by 1000.
 
 
-### Steps
+### Steps to recreate
 1. Node and npm are already installed in Codespaces. If you're in a different environment, [install node for your platform](https://nodejs.org/en/download/)
 1. Grab Hello World server code from the Getting Started documentation, save as server.js
 1. Run `npm init` to create a `package.json`, specify `server.js` as the _entry point_ in the interactive script

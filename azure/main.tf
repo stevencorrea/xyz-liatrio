@@ -1,9 +1,9 @@
 terraform {
   backend "remote" {
-    # The name of your Terraform Cloud organization
+    # The name of our Terraform Cloud organization
     organization = "xyz-liatrio"
 
-    # The name of the Terraform Cloud Workspace
+    # The name of our Terraform Cloud Workspace
     workspaces {
       name = "xyz-liatrio-azure"
     }
@@ -23,9 +23,9 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
+# Delete this to trigger a run!
 # resource "null_resource" "is-the-rube-machine-turing-complete" {
 # }
-
 
 # Create a resource group for the AKS cluster and ACR
 resource "azurerm_resource_group" "xyz-liatrio" {
@@ -50,7 +50,8 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   dns_prefix          = "xyz-aks-cluster"
   # Enable http routing for ingress controller
   http_application_routing_enabled = true
-
+  
+  # Make our node pool Linux based
   default_node_pool {
     name       = "default"
     node_count = 1
@@ -65,6 +66,8 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 
 }
 
+# Tie the Service Principal generated for the AKS cluster to ACR
+# with 'AcrPull' permissions
 resource "azurerm_role_assignment" "aks-acr-role" {
   scope                = azurerm_container_registry.xyzacrliatrio.id
   role_definition_name = "AcrPull"
