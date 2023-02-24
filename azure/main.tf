@@ -53,17 +53,17 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
 
   # Make our node pool Linux based
   default_node_pool {
-    name       = "default"
-    node_count = 1
-    os_sku     = "Ubuntu"
-    vm_size    = "Standard_D2_v2"
-    type       = "VirtualMachineScaleSets"
+    name                = "default"
+    node_count          = 1
+    enable_auto_scaling = true
+    os_sku              = "Ubuntu"
+    vm_size             = "Standard_D2_v2"
+    type                = "VirtualMachineScaleSets"
   }
   # Let Azure manage identity for the cluster
   identity {
     type = "SystemAssigned"
   }
-
 }
 
 # Tie the Service Principal generated for the AKS cluster to ACR

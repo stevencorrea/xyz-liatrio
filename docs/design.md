@@ -8,4 +8,11 @@ The prompt mentions that XYZ is a traditional on prem shop that is interested in
 
 With that in mind, I added a lot of documentation, reference reading and hints in comments to get an environment off the ground. I needed all of these resources myself as it has been a few years since I have dove deep into Azure.
 
-I also designed the (very) high level architecture diagram to be consumed by non-technical folk. The GH Action runner is applying the k8s manifest which is then reaching out to ACR for the image etc.
+I also approached this thinking that once the infrastructure was defined, there would be little, if any iteration (similar to a conventional data center).
+
+Finally, I designed the (very) high level architecture diagram to be consumed by non-technical folk. The GH Action runner is applying the k8s manifest which is then reaching out to ACR for the image etc.
+
+Other opinionated decisions taken:
+* Terraform Cloud - Simple UI driven SaSS offering that offers free remote state management
+* Auto Apply – What is merged to main should be on it's way out to production
+* Seperate Test and Deploy workflows – Easier to wrap your brain around and troubleshoot failures
