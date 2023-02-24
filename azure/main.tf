@@ -27,7 +27,7 @@ provider "azurerm" {
 # resource "null_resource" "is-the-rube-machine-turing-complete" {
 # }
 
-# Create a resource group for the AKS cluster and ACR
+# Imported resource
 resource "azurerm_resource_group" "xyz-liatrio" {
   name     = "xyz-liatrio-prod"
   location = "westus"
@@ -54,8 +54,9 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   # Make our node pool Linux based
   default_node_pool {
     name                = "default"
-    node_count          = 1
     enable_auto_scaling = true
+    min_count           = 1
+    max_count           = 5
     os_sku              = "Ubuntu"
     vm_size             = "Standard_D2_v2"
     type                = "VirtualMachineScaleSets"
