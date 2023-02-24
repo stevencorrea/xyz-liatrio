@@ -1,24 +1,24 @@
 # xyz-liatrio
 A containerized cloud environment for potential client XYZ
 
+## Quick Start
+### Environment Initialization
+* Clone or fork this repo
+* Log into or create a Terraform Cloud account, [generate an API token]([TF_API_TOKEN](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/users#tokens)) and store it as TF_API_TOKEN in GitHub Secrets (Settings -> Secrets and Variables -> Actions)
+* Log in to an [Azure account](https://portal.azure.com) or Create one and [follow these instructions]()
+* Store Service Principal credentials as AZURE_CREDENTIALS in GitHub Secrets
+* Delete the `null_resource` in [azure/main.tf](https://github.com/stevencorrea/xyz-liatrio/blob/main/azure/main.tf#L26)
+* Push the change
+* Your environment is deployed 🎉
 
-## Setup
-This project leverages platforms that require integration via secrets. Please ensure the following are configured for your environment prior to _application_ deploy: 
-
-| Platform | Use | Secrets
-| ---------|-----|-----|
-| [GitHub Actions](https://github.com/stevencorrea/xyz-liatrio/tree/main/.github/workflows) | Execute CI/CD | NA |
-| [Terraform Cloud](https://app.terraform.io/session) | Store and manage Terraform State | [TF_API_TOKEN](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/users#tokens) |
-| [Azure](https://portal.azure.com) | Deploy resources to Azure Cloud | [AZURE_CREDENTIALS](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-static-site-github-actions?tabs=userlevel)
-| [ACR](https://azure.microsoft.com/en-us/products/container-registry/) | Known after First Run | [ACR_USERNAME](https://learn.microsoft.com/en-us/cli/azure/acr/credential?view=azure-cli-latest), [ACR_PASSWORD](https://learn.microsoft.com/en-us/cli/azure/acr/credential?view=azure-cli-latest)
+### Application
+* Delete the comment in [app/server.js](https://github.com/stevencorrea/xyz-liatrio/blob/main/app/server.js#L4)
+* Push the change
+* Your app is deployed 🎉
 
 
 ### Getting Started
 This project is a simple NodeJS app that exposes a REST endpoint.
-
-### Architecture
-
-![XYZ High Level Architecture](https://user-images.githubusercontent.com/7317502/221084129-0aae27c6-0188-46b6-a70b-c32897193b39.png)
 
 #### Reference
 Additional documentation is available in the [docs](https://github.com/stevencorrea/xyz-liatrio/tree/main/docs) directory.
