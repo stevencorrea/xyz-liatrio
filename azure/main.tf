@@ -50,7 +50,7 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   dns_prefix          = "xyz-aks-cluster"
   # Enable http routing for ingress controller
   http_application_routing_enabled = true
-  
+
   # Make our node pool Linux based
   default_node_pool {
     name       = "default"
