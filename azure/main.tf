@@ -27,10 +27,10 @@ provider "azurerm" {
 # resource "null_resource" "is-the-rube-machine-turing-complete" {
 # }
 
- #Imported resource
- resource "azurerm_resource_group" "xyz-liatrio" {
-   name     = "xyz-liatrio"
-   location = "westus"
+#Imported resource
+resource "azurerm_resource_group" "xyz-liatrio" {
+  name     = "xyz-liatrio"
+  location = "westus"
 }
 
 # Create our ACR

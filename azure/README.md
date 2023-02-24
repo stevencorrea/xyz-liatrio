@@ -44,7 +44,6 @@ Workspace Settings -> Version Control
 
 Apply Method: Auto apply
 
-
 We now need to make a plan:
 
 In a new branch, delete the `null_resource` that's commented out in `main.tf` and open a pull request.
