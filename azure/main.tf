@@ -29,7 +29,7 @@ provider "azurerm" {
 
 # Create a resource group for the AKS cluster and ACR
 resource "azurerm_resource_group" "xyz-liatrio" {
-  name     = "xyz-liatrio"
+  name     = "xyz-liatrio-prod"
   location = "westus"
 }
 
