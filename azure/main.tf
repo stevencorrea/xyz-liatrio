@@ -67,8 +67,7 @@ resource "azurerm_kubernetes_cluster" "xyz-aks-cluster" {
   }
 }
 
-# Tie the Service Principal generated for the AKS cluster to ACR
-# with 'AcrPull' permissions
+# Service Principal generated for the AKS cluster to ACR
 resource "azurerm_role_assignment" "aks-acr-role" {
   scope                = azurerm_container_registry.xyzacrliatrio.id
   role_definition_name = "AcrPull"
