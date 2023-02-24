@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 
-// Delete me to trigger a deploy!
 
 // REST endpoint that sends a message and timestamp
 app.get('/', (req, res) => {
