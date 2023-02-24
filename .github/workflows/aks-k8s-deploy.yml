@@ -89,14 +89,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # # Logs in to ACR
-      # - name: Azure Container Registry Login
-      #   uses: azure/docker-login@v1
-      #   with:
-      #     login-server: xyzacrliatrio.azurecr.io
-      #     username: ${{ secrets.ACR_USERNAME }}
-      #     password: ${{ secrets.ACR_PASSWORD }}
-
       # Use kubelogin to configure your kubeconfig for Azure auth
       - name: Set up kubelogin for non-interactive login
         uses: azure/use-kubelogin@v1
