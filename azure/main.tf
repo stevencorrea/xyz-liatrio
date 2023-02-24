@@ -27,7 +27,7 @@ provider "azurerm" {
 # resource "null_resource" "is-the-rube-machine-turing-complete" {
 # }
 
-# Create a resource group for the AKS cluster and ACR
+# Imported resource
 resource "azurerm_resource_group" "xyz-liatrio" {
   name     = "xyz-liatrio"
   location = "westus"
