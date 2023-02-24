@@ -32,10 +32,6 @@ name: Deploy App to AKS
 on:
   push:
     branches: ["main"]
-    paths:
-      - "!**.tf"
-      - "!**.md"
-      - "!.github/*"
   workflow_dispatch:
 
 env:

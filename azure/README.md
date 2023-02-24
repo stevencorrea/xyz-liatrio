@@ -59,6 +59,13 @@ terraform import azurerm_resource_group.xyz-liatrio /subscriptions/b9009040-4a5e
 
 We can now deploy resources into our resource group. Merge the change and apply the terraform!
 
+After Terraform creates our ECR, we need to retrieve and store the credentials in GitHub. Almost done~
+
+```bash
+az acr credential show -n xyzacrliatrio
+```
+
+
 ### Resources
 [Instructions to set these resources up via portal, cli or powershell](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-cli%2Clinux)
 
