@@ -14,6 +14,9 @@ az acr credential show -n xyzacrliatrio
 ### Get AKS Credentials
 sudo az aks get-credentials --name xyz-aks-cluster --resource-group xyz-liatrio
 
+### Get Ingress Endpoint
+kubectl get ingress
+
 ### Get Enabled Providers Enabled for Subscription
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 
