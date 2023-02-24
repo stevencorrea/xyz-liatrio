@@ -32,6 +32,8 @@ name: Deploy App to AKS
 on:
   push:
     branches: ["main"]
+    paths:
+      - "azure/*.tf"
   workflow_dispatch:
 
 env:
