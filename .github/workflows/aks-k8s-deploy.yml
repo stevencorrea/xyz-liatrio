@@ -50,8 +50,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-      pull-requests: write
-
     runs-on: ubuntu-latest
     steps:
       # Checks out the repository this file is in
